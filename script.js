@@ -182,7 +182,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // pdfja origjinale
     const fileBuffer = await fileInput.files[0].arrayBuffer();
-    const { PDFDocument } = window.PDFLib;
+    const { PDFDocument } = window['pdfjs-dist/build/pdf'];
     const pdfDoc = await PDFDocument.load(fileBuffer);
     const page = pdfDoc.getPage(0);
 
