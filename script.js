@@ -22,13 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const emailError = document.getElementById('email-error');
   let loadedPdf = null;
 
-  if (window.pdfjsLib) {
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'assets/pdfjs/pdf.worker.min.js';
-  } else {
-    alert('Problem në ngarkimin e librarisë!');
-    return;
-  }
-
   // Shfaqja e PDF-së në canvas
   fileInput.addEventListener('change', PdfLoader);
 
