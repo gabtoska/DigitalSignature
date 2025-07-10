@@ -22,6 +22,13 @@ document.addEventListener('DOMContentLoaded', function () {
   const emailError = document.getElementById('email-error');
   let loadedPdf = null;
 
+  if (window.pdfjsLib) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'assets/pdfjs/pdf.worker.min.js';
+  } else {
+    alert('Problem në ngarkimin e librarisë!');
+    return;
+  }
+
   // Shfaqja e PDF-së në canvas
   fileInput.addEventListener('change', PdfLoader);
 
@@ -182,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // pdfja origjinale
     const fileBuffer = await fileInput.files[0].arrayBuffer();
-    const { PDFDocument } = window['pdfjs-dist/build/pdf'];
+    const { PDFDocument } = window.PDFLib;
     const pdfDoc = await PDFDocument.load(fileBuffer);
     const page = pdfDoc.getPage(0);
 
