@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nënshkrimi Elektronik</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
+
+</head>
+
+<body>
+  <h1 id="titulli" class="mt-4 mb-4 text-center fw-bold">Nënshkrimi Elektronik</h1>
+  <div class="container">
+    <div class="row g-2">
+      <div class="col-md-5 ">
+        <form name="myform" id="myform" action="#" method="post" autocomplete="off">
+          <div class="mb-3">
+            <label for="firstName" class="form-label fs-5">Emri</label>
+            <input type="text" class="form-control fs-6" id="firstName" placeholder="Vendosni emrin" name="firstName">
+            <span id="firstName-error" class="error-message">Emri nuk duhet të jetë bosh dhe nuk lejon numra.</span>
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label fs-5">Mbiemri</label>
+            <input type="text" class="form-control fs-6" id="lastName" placeholder="Vendosni mbiemrin" name="lastName">
+            <span id="lastName-error" class="error-message">Mbiemri nuk duhet të jetë bosh dhe nuk lejon numra.</span>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label fs-5">E-mail</label>
+            <input type="email" class="form-control fs-6" id="email" placeholder="Vendosni e-mail" name="email">
+            <span id="email-error" class="error-message">Emaili nuk është i vlefshëm.</span>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fs-5">Nënshkrimi</label>
+            <canvas id="firma" class="firmacanvas" aria-label="Ju lutem firmosni këtu"></canvas>
+            <button type="button" class="btn btn-secondary mt-2" id="Reset">Reset</button>
+            <button type="button" class="btn btn-primary mt-2" id="addSignatureToPDF">Vendos nënshkrimin në PDF</button>
+          </div>
+          <div class="mb-3">
+            <label for="pdfile" class="form-label fs-5">Ngarkoni PDF</label>
+            <input type="file" class="form-control" accept=".pdf" id="pdfile" name="pdfile" required>
+          </div>
+          <div class="d-flex flex-column flex-md-row gap-3 mt-3">
+            <button type="button" class="btn btn-success flex-fill" id="downloadBtn">Shkarko PDF të firmosur</button>
+            <button type="submit" class="btn btn-success flex-fill" id="sendmailBtn">Dërgo E-mail</button>
+          </div>
+        </form>
+      </div>
+      <div class=" col-md-7 col-sm-12">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h5 class="card-title text-center mb-3">PDF-ja Juaj</h5>
+            <div id="pdfshfaqje">
+              <canvas id="pdfpreview" aria-label="PDF Preview"></canvas>
+              <img id="firmaimg" draggable="true" style="display:none;" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="assets/pdfjs/pdf.min.js"></script>
+  <script src="assets/pdfjs/pdf.worker.min.js"></script>
+  <script src="assets/signature_pad.umd.min.js"></script>
+  <script src="assets/pdfjs/pdf-lib.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
